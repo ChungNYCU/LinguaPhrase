@@ -1,15 +1,18 @@
-import type { AppProps } from 'next/app'
-import { ThemeProvider } from 'next-themes'
+import type { AppProps } from "next/app";
+import { ThemeProvider } from "next-themes";
 
-import Layout from '@/components/Layout'
-import '@/styles/globals.css'
+import Layout from "@/components/Layout";
+import "@/styles/globals.css";
 
-export default function App({ Component, pageProps: {  ...pageProps } }: AppProps) {
+export default function App({
+  Component,
+  pageProps: { ...pageProps },
+}: AppProps) {
   return (
-    <ThemeProvider attribute='class'>
+    <ThemeProvider attribute="class">
       <Layout>
         <Component {...pageProps} />
       </Layout>
     </ThemeProvider>
-  )
+  );
 }
