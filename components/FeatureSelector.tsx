@@ -5,10 +5,10 @@ type FeatureSelectorProps = {};
 const FeatureSelector = (props: FeatureSelectorProps) => {
   return (
     <div className="mt-10">
-      <Button className="classic-blue-button" onClick={() => {}}>
+      <Button className="blue-button" onClick={() => {}}>
         Email
       </Button>
-      <Button className="classic-blue-button" onClick={() => {}}>
+      <Button className="blue-button" onClick={() => {}}>
         Grammar
       </Button>
     </div>

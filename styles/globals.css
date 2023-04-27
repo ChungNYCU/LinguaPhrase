@@ -33,14 +33,11 @@
     @apply text-lg font-semibold text-gray-400 duration-300 ease-in hover:text-blue-500;
   }
 
-  .reponame {
-    @apply rounded-md font-semibold duration-200 ease-in hover:text-blue-500 hover:ring-2;
-  }
-
   .about-page-title {
     @apply mt-20 font-semibold dark:text-blue-500;
   }
-  .classic-blue-button {
+
+  .blue-button {
     @apply mr-5 w-24 bg-blue-300 px-6 text-black hover:bg-blue-500 hover:text-white;
   }
 }
