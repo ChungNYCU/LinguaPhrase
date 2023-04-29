@@ -26,7 +26,7 @@ const About = () => {
       <h5 className="about-page-title">Our Inspiration</h5>
       <p className="mt-5">
         At LinguaPhrase, we understand that language barriers can be a major
-        obstacle for international students. That's why we created a tool that
+        obstacle for international students. That is why we created a tool that
         helps them overcome these barriers and express their ideas more
         effectively in English. Our goal is to empower international students to
         communicate confidently and achieve their academic and professional
@@ -45,7 +45,7 @@ const About = () => {
       <h5 className="about-page-title">Getting Started with LinguaPhrase</h5>
       <p className="mt-5">
         To get started with LinguaPhrase, simply input your text into our
-        user-friendly interface and click 'rephrase' to receive suggestions for
+        user-friendly interface and click rephrase to receive suggestions for
         alternative phrasing and structure. Our tool is easy to use and
         intuitive, but if you have any questions, check out our tutorials and
         FAQs for more guidance.
