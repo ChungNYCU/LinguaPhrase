@@ -11,7 +11,7 @@ const IndexBody = () => {
   };
 
   return (
-    <section className="mt-16">
+    <section className="mt-5">
       <h1 className="font-bold">
         <span className="dark:text-blue-500">LinguaPhrase</span>
       </h1>
