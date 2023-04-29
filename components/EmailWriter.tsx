@@ -3,9 +3,7 @@ import { useState } from "react";
 import Button from "@/components/Button";
 import Loading from "./Loading";
 
-type EmailWriterProps = {};
-
-const EmailWriter = (props: EmailWriterProps) => {
+const EmailWriter = () => {
   const [sender, setSender] = useState<string>("");
   const [recipient, setRecipient] = useState<string>("");
   const [propose, setPropose] = useState<string>("");
@@ -102,13 +100,13 @@ const EmailWriter = (props: EmailWriterProps) => {
       </div>
 
       {isLoading && <Loading />}
-      {result &&
+      {result && (
         <div className="result-display mt-10 w-full">
           <div className="m-20 mt-10">
             <p className="whitespace-pre-wrap">{result}</p>
           </div>
-        </div>}
-
+        </div>
+      )}
     </div>
   );
 };

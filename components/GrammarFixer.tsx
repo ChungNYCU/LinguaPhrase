@@ -3,14 +3,10 @@ import { useState } from "react";
 import Button from "@/components/Button";
 import Loading from "./Loading";
 
-type GrammarFixerProps = {};
-
-const GrammarFixer = (props: GrammarFixerProps) => {
-
+const GrammarFixer = () => {
   const [paragraph, setParagraph] = useState<string>("");
   const [result, setResult] = useState<string>("");
   const [isLoading, setLoading] = useState(false);
-
 
   const handleGenerateClick = () => {
     setResult("");
@@ -40,11 +36,11 @@ const GrammarFixer = (props: GrammarFixerProps) => {
       });
   };
 
-
-  const handleParagraphChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+  const handleParagraphChange = (
+    event: React.ChangeEvent<HTMLTextAreaElement>
+  ) => {
     setParagraph(event.target.value);
   };
-
 
   return (
     <div className="mt-10">
@@ -68,14 +64,13 @@ const GrammarFixer = (props: GrammarFixerProps) => {
       </div>
 
       {isLoading && <Loading />}
-      {result &&
+      {result && (
         <div className="result-display mt-10 w-full">
           <div className="m-20 mt-10">
             <p className="whitespace-pre-wrap">{result}</p>
           </div>
-        </div>}
-
-
+        </div>
+      )}
     </div>
   );
 };
