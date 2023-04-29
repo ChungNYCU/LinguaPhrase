@@ -1,15 +1,6 @@
-import { useRouter } from "next/router";
-
-import Button from "@/components/Button";
 import FeatureSelector from "@/components/FeatureSelector";
 
 const IndexBody = () => {
-  const router = useRouter();
-
-  const directToReposPage = () => {
-    router.push("/repos");
-  };
-
   return (
     <section className="mt-5">
       <h1 className="font-bold">
