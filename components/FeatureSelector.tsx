@@ -43,10 +43,10 @@ const FeatureSelector = (props: FeatureSelectorProps) => {
 
   return (
     <div className="mt-10">
-      <Button className="mr-5 blue-button" onClick={displayEmail}>
+      <Button className="blue-button mr-5" onClick={displayEmail}>
         Email
       </Button>
-      <Button className="mr-5 blue-button" onClick={displayRephrase}>
+      <Button className="blue-button mr-5" onClick={displayRephrase}>
         Rephrase
       </Button>
       <Button className="blue-button" onClick={displayGrammar}>

@@ -10,10 +10,10 @@ const EmailWriter = (props: EmailWriterProps) => {
   const [recipient, setRecipient] = useState<string>("");
   const [propose, setPropose] = useState<string>("");
   const [result, setResult] = useState<string>("");
-  const [isLoading, setLoading] = useState(false)
+  const [isLoading, setLoading] = useState(false);
 
   const handleGenerateClick = () => {
-    setResult("")
+    setResult("");
     setLoading(true);
     fetch("/api/emailWriter", {
       method: "POST",
@@ -35,7 +35,7 @@ const EmailWriter = (props: EmailWriterProps) => {
       .then((data) => {
         console.log(data);
         setResult(data);
-        setLoading(false)
+        setLoading(false);
       })
       .catch((error) => {
         console.error("Error fetching result:", error);
@@ -101,14 +101,12 @@ const EmailWriter = (props: EmailWriterProps) => {
         </Button>
       </div>
 
-
-      <div className='mt-10 w-full result-display'>
-        <div className='m-20 mt-10'>
+      <div className="result-display mt-10 w-full">
+        <div className="m-20 mt-10">
           {isLoading && <Loading />}
-          <p className='whitespace-pre-wrap'>{result}</p>
+          <p className="whitespace-pre-wrap">{result}</p>
         </div>
       </div>
-
     </div>
   );
 };
