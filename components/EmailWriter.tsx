@@ -1,33 +1,89 @@
 import Button from "@/components/Button";
+import { useState } from "react";
 
 type EmailWriterProps = {};
 
 const EmailWriter = (props: EmailWriterProps) => {
+  const [sender, setSender] = useState<string>("");
+  const [recipient, setRecipient] = useState<string>("");
+  const [propose, setPropose] = useState<string>("");
+
+  const handleGenerateClick = () => {
+    fetch("/api/emailWriter", {
+      method: "POST",
+      body: JSON.stringify({ sender: sender, recipient: recipient, propose: propose }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching result:", error);
+      });
+  };
+
+  const handleSenderChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSender(event.target.value);
+  };
+
+  const handleRecipientChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setRecipient(event.target.value);
+  };
+
+  const handleProposeChange = (
+    event: React.ChangeEvent<HTMLTextAreaElement>
+  ) => {
+    setPropose(event.target.value);
+  };
+
   return (
     <div className="mt-10">
-      Title
+
+      <h6 className="mb-2 mt-4">From</h6>
       <input
         type="text"
-        id="title"
-        name="title"
+        id="sender"
         className="text-input"
-        placeholder="Enter email title"
-        value={""}
-        onChange={() => {}}
+        placeholder="Sender"
+        value={sender}
+        onChange={handleSenderChange}
         required
       />
-      Propose
+
+      <h6 className="mb-2 mt-4">To</h6>
+      <input
+        type="text"
+        id="recipient"
+        className="text-input"
+        placeholder="Recipient"
+        value={recipient}
+        onChange={handleRecipientChange}
+        required
+      />
+
+      <h6 className="mb-2 mt-4">Propose</h6>
       <textarea
-        id="body"
+        id="Propose"
         rows={6}
         minLength={0}
         className="text-input"
-        placeholder="Enter issue body"
-        value={""}
-        onChange={() => {}}
+        placeholder="For what"
+        value={propose}
+        onChange={handleProposeChange}
         required
       ></textarea>
       <br />
+      <Button className="blue-button" onClick={handleGenerateClick}>
+        Generate
+      </Button>
     </div>
   );
 };
