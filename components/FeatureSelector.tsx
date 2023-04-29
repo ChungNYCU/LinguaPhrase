@@ -49,6 +49,7 @@ const FeatureSelector = () => {
       >
         Email
       </Button>
+
       <Button
         className={`${
           rephraseDisplay ? "selected-blue-button" : "blue-button"
@@ -57,6 +58,7 @@ const FeatureSelector = () => {
       >
         Rephrase
       </Button>
+
       <Button
         className={`${grammarDisplay ? "selected-blue-button" : "blue-button"}`}
         onClick={displayGrammar}
