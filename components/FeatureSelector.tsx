@@ -4,9 +4,7 @@ import EmailWriter from "./EmailWriter";
 import GrammarFixer from "./GrammarFixer";
 import Rephraser from "./Rephraser";
 
-type FeatureSelectorProps = {};
-
-const FeatureSelector = (props: FeatureSelectorProps) => {
+const FeatureSelector = () => {
   const [emailDisplay, setEmailDisplay] = useState(false);
   const [rephraseDisplay, setRephraseDisplay] = useState(false);
   const [grammarDisplay, setGrammarDisplay] = useState(false);
@@ -43,13 +41,26 @@ const FeatureSelector = (props: FeatureSelectorProps) => {
 
   return (
     <div className="mt-10">
-      <Button className={`${emailDisplay ? 'selected-blue-button' : 'blue-button'} mr-5`} onClick={displayEmail}>
+      <Button
+        className={`${
+          emailDisplay ? "selected-blue-button" : "blue-button"
+        } mr-5`}
+        onClick={displayEmail}
+      >
         Email
       </Button>
-      <Button className={`${rephraseDisplay ? 'selected-blue-button' : 'blue-button'} mr-5`} onClick={displayRephrase}>
+      <Button
+        className={`${
+          rephraseDisplay ? "selected-blue-button" : "blue-button"
+        } mr-5`}
+        onClick={displayRephrase}
+      >
         Rephrase
       </Button>
-      <Button className={`${grammarDisplay ? 'selected-blue-button' : 'blue-button'}`} onClick={displayGrammar}>
+      <Button
+        className={`${grammarDisplay ? "selected-blue-button" : "blue-button"}`}
+        onClick={displayGrammar}
+      >
         Grammar
       </Button>
       {emailDisplay && <EmailWriter />}
