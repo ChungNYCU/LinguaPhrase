@@ -5,7 +5,7 @@ type RephraserProps = {};
 const Rephraser = (props: RephraserProps) => {
   return (
     <div className="mt-10">
-      Rephrase
+      <h6 className="mb-2 mt-4">Rephrase</h6>
       <textarea
         id="body"
         rows={6}

@@ -5,7 +5,7 @@ type GrammarFixerProps = {};
 const GrammarFixer = (props: GrammarFixerProps) => {
   return (
     <div className="mt-10">
-      Grammar
+      <h6 className="mb-2 mt-4">Grammar</h6>
       <textarea
         id="body"
         rows={6}
