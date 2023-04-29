@@ -4,11 +4,20 @@ import Button from "@/components/Button";
 import Loading from "./Loading";
 
 const GrammarFixer = () => {
+
+  const MIN_LENGTH = 0;
+  const MAX_LENGTH = 500;
+  const MAX_ROW = 10;
+
   const [paragraph, setParagraph] = useState<string>("");
   const [result, setResult] = useState<string>("");
   const [isLoading, setLoading] = useState(false);
 
   const handleGenerateClick = () => {
+    if (!paragraph) { 
+      setResult('\nPlease enter your paragraph.') 
+      return
+    }
     setResult("");
     setLoading(true);
     fetch("/api/grammarFixer", {
@@ -33,6 +42,8 @@ const GrammarFixer = () => {
       })
       .catch((error) => {
         console.error("Error fetching result:", error);
+        setResult("\nError fetching result:"+ error);
+        setLoading(false);
       });
   };
 
@@ -47,10 +58,11 @@ const GrammarFixer = () => {
       <h6 className="mb-2 mt-4">Correct your grammar</h6>
       <textarea
         id="body"
-        rows={20}
-        minLength={0}
+        rows={MAX_ROW}
+        minLength={MIN_LENGTH}
+        maxLength={MAX_LENGTH}
         className="text-input"
-        placeholder="Enter paragraph"
+        placeholder={`Maximum ${MAX_LENGTH} characters`}
         value={paragraph}
         onChange={handleParagraphChange}
         required

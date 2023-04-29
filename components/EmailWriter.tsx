@@ -37,6 +37,8 @@ const EmailWriter = () => {
       })
       .catch((error) => {
         console.error("Error fetching result:", error);
+        setResult("Error fetching result:"+error);
+        setLoading(false);
       });
   };
 
