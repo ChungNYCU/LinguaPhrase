@@ -52,4 +52,8 @@
   .result-display {
     @apply rounded-lg  border bg-gray-200 dark:border-gray-700 dark:bg-gray-700;
   }
+
+  .result-margin{
+    @apply m-10 mt-5;
+  }
 }

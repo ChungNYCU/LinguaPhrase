@@ -66,7 +66,7 @@ const GrammarFixer = () => {
       {isLoading && <Loading />}
       {result && (
         <div className="result-display mt-10 w-full">
-          <div className="m-20 mt-10">
+          <div className="result-margin">
             <p className="whitespace-pre-wrap">{result}</p>
           </div>
         </div>
