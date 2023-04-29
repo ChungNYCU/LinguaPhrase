@@ -101,12 +101,14 @@ const EmailWriter = (props: EmailWriterProps) => {
         </Button>
       </div>
 
-      <div className="result-display mt-10 w-full">
-        <div className="m-20 mt-10">
-          {isLoading && <Loading />}
-          <p className="whitespace-pre-wrap">{result}</p>
-        </div>
-      </div>
+      {isLoading && <Loading />}
+      {result &&
+        <div className="result-display mt-10 w-full">
+          <div className="m-20 mt-10">
+            <p className="whitespace-pre-wrap">{result}</p>
+          </div>
+        </div>}
+
     </div>
   );
 };
