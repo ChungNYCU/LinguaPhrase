@@ -4,7 +4,6 @@ import Button from "@/components/Button";
 import Loading from "./Loading";
 
 const Rephraser = () => {
-
   const MIN_LENGTH = 0;
   const MAX_LENGTH = 500;
   const MAX_ROW = 10;
@@ -14,6 +13,10 @@ const Rephraser = () => {
   const [isLoading, setLoading] = useState(false);
 
   const handleGenerateClick = () => {
+    if (!paragraph) {
+      setResult("\nPlease enter your paragraph.");
+      return;
+    }
     setResult("");
     setLoading(true);
     fetch("/api/rephraser", {
@@ -38,7 +41,7 @@ const Rephraser = () => {
       })
       .catch((error) => {
         console.error("Error fetching result:", error);
-        setResult("\nError fetching result:"+ error);
+        setResult("\nError fetching result:" + error);
         setLoading(false);
       });
   };

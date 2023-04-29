@@ -4,6 +4,10 @@ import Button from "@/components/Button";
 import Loading from "./Loading";
 
 const EmailWriter = () => {
+  const MIN_LENGTH = 0;
+  const MAX_LENGTH = 300;
+  const MAX_ROW = 6;
+
   const [sender, setSender] = useState<string>("");
   const [recipient, setRecipient] = useState<string>("");
   const [propose, setPropose] = useState<string>("");
@@ -11,6 +15,17 @@ const EmailWriter = () => {
   const [isLoading, setLoading] = useState(false);
 
   const handleGenerateClick = () => {
+    if (!sender) {
+      setResult("\nPlease enter your sender.");
+      return;
+    } else if (!recipient) {
+      setResult("\nPlease enter your recipient.");
+      return;
+    } else if (!propose) {
+      setResult("\nPlease enter your propose.");
+      return;
+    }
+
     setResult("");
     setLoading(true);
     fetch("/api/emailWriter", {
@@ -37,7 +52,7 @@ const EmailWriter = () => {
       })
       .catch((error) => {
         console.error("Error fetching result:", error);
-        setResult("Error fetching result:"+error);
+        setResult("Error fetching result:" + error);
         setLoading(false);
       });
   };
@@ -85,10 +100,11 @@ const EmailWriter = () => {
       <h6 className="mb-2 mt-4">Propose</h6>
       <textarea
         id="Propose"
-        rows={6}
-        minLength={0}
+        rows={MAX_ROW}
+        minLength={MIN_LENGTH}
+        maxLength={MAX_LENGTH}
         className="text-input"
-        placeholder="For what"
+        placeholder={`Maximum ${MAX_LENGTH} characters`}
         value={propose}
         onChange={handleProposeChange}
         required
