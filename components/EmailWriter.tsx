@@ -40,7 +40,9 @@ const EmailWriter = () => {
       },
     })
       .then((response) => {
-        if (!response.ok) {
+        if (response.status == 504) {
+          throw new Error("The response from OpenAi takes more than 10 seconds, any reply more than 10 seconds under Vercel free version will trigger status 504.");
+        } else if (!response.ok) {
           throw new Error("Network response was not ok");
         }
         return response.json();
